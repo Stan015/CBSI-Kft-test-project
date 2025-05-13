@@ -9,4 +9,10 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
   },
+  modules: ["@nuxtjs/google-fonts"],
+  googleFonts: {
+    families: {
+      'Lexend+Deca': [100, 300, 400, 500, 700],
+    },
+  },
 });

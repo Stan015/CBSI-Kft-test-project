@@ -6,6 +6,7 @@
   --clr-secondary: #FFFFFF;
   --clr-accent: #007AFF;
   --clr-blue: #007AFF;
+  --clr-gray: #8C929C;
 }
 
 @theme inline {
@@ -13,6 +14,9 @@
   --color-primary: var(--clr-primary);
   --color-secondary: var(--clr-secondary);
   --color-accent: var(--clr-accent);
+  --color-blue: var(--clr-blue);
+  --color-gray: var(--clr-gray);
+  --font-lexend-deca: 'Lexend Deca', sans-serif;
 }
 
 body {
