@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #F8F8F8;
-  --clr-primary: #0A0C11;
-  --clr-secondary: #FFFFFF;
-  --clr-accent: #007AFF;
-  --clr-blue: #007AFF;
-  --clr-gray: #8C929C;
+  --background: #f8f8f8;
+  --clr-primary: #0a0c11;
+  --clr-secondary: #ffffff;
+  --clr-accent: #007aff;
+  --clr-blue: #007aff;
+  --clr-gray: #8c929c;
 }
 
 @theme inline {
@@ -16,13 +16,13 @@
   --color-accent: var(--clr-accent);
   --color-blue: var(--clr-blue);
   --color-gray: var(--clr-gray);
-  --font-lexend-deca: 'Lexend Deca', sans-serif;
+  --font-lexend-deca: "Lexend Deca", sans-serif;
 }
 
 body {
   background-color: var(--background);
   color: var(--clr-primary);
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 @media screen and (min-width: 1740px) {
