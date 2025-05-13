@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+:root {
+  --background: #F8F8F8;
+  --clr-primary: #0A0C11;
+  --clr-secondary: #FFFFFF;
+  --clr-accent: #007AFF;
+  --clr-blue: #007AFF;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-primary: var(--clr-primary);
+  --color-secondary: var(--clr-secondary);
+  --color-accent: var(--clr-accent);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--clr-primary);
+  font-family: 'Inter', sans-serif;
+}
+
+@media screen and (min-width: 1740px) {
+  html {
+    display: grid;
+    justify-items: center;
+    width: 100%;
+  }
+
+  body {
+    max-width: 1740px;
+    width: 100%;
+  }
+}
