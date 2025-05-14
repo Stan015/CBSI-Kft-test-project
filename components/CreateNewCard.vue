@@ -2,9 +2,9 @@
 const selectedCardStyle = ref<string>("Default Card Style");
 
 const cardTypeOptions = [
-  "Default Card Style",
-  "Image Card Style",
-  "Checkbox Card Style",
+  { value: "default-card-style", label: "Default Card Style" },
+  { value: "image-card-style", label: "Image Card Style" },
+  { value: "image-card-style", label: "Checkbox Card Style" },
 ];
 
 const handleUpload = (file: File) => {
@@ -23,6 +23,7 @@ const CheckOptionsForCheckType = ref<string[]>([]);
         aria-label="Close"
         class="cursor-pointer border border-transparent hover:border-accent p-2 rounded-full transition-all"
         type="button"
+        @click="$emit('close')"
       >
         <svg
           width="18"
@@ -43,18 +44,18 @@ const CheckOptionsForCheckType = ref<string[]>([]);
     </div>
 
     <div class="flex flex-col gap-4">
-      <Select v-model="selectedCardStyle" placeholder="Select an option">
+      <Select v-model="selectedCardStyle" placeholder="Select type of card">
         <template #options="{ selectOption, selected }">
           <div
             v-for="option in cardTypeOptions"
-            :key="option"
+            :key="option.value"
             class="px-3 py-2 text-primary cursor-pointer hover:bg-blue-light transition-all"
-            :class="cn({ 'bg-blue-light': selected === option })"
+            :class="cn({ 'bg-blue-light': selected === option.value })"
             role="option"
-            :aria-selected="selected === option"
-            @click="selectOption(option)"
+            :aria-selected="selected === option.label"
+            @click="selectOption(option.label)"
           >
-            {{ option }}
+            {{ option.label }}
           </div>
         </template>
       </Select>
