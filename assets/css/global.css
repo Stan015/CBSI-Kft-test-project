@@ -9,6 +9,9 @@
   --clr-blue-light: #007AFF26;
   --clr-gray: #8c929c;
   --clr-gray-light: #F4F4F4;
+  --clr-green: #14AE5C;
+  --clr-red: #FF3B30;
+  --clr-red-light: #F84B5F33;
 }
 
 @theme inline {
@@ -20,6 +23,9 @@
   --color-blue-light: var(--clr-blue-light);
   --color-gray: var(--clr-gray);
   --color-gray-light: var(--clr-gray-light);
+  --color-green: var(--clr-green);
+  --color-red: var(--clr-red);
+  --color-red-light: var(--clr-red-light);
   --font-lexend-deca: "Lexend Deca", sans-serif;
 }
 
