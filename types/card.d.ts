@@ -5,4 +5,5 @@ export type Card = {
   description: string;
   imageSrc: string | null;
   options: string[];
+  selectedOptions?: string[];
 };
