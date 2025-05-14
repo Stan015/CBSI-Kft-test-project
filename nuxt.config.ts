@@ -13,4 +13,5 @@ export default defineNuxtConfig({
       "Lexend+Deca": [100, 300, 400, 500, 700],
     },
   },
+  components: ["~/components", { path: "~/components/ui/", pathPrefix: false }],
 });

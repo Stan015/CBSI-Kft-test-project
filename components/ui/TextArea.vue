@@ -1,0 +1,70 @@
+<script setup lang="ts">
+const attrs = useAttrs();
+
+const textareaRef = ref<HTMLTextAreaElement | null>(null);
+const isFocused = ref(false);
+const modelValue = ref(attrs.modelValue || "");
+
+const hasValue = computed(() => {
+  return (
+    modelValue.value !== "" &&
+    modelValue.value !== null &&
+    modelValue.value !== undefined
+  );
+});
+
+const classes = computed(() =>
+  cn(
+    "w-full text-sm text-primary bg-gray-light rounded px-3 pt-6 pb-2 border-[1.8px] border-transparent box-border rounded-[1rem]",
+    "transition-all duration-200",
+    "hover:border-blue focus:border-blue active:border-blue focus:outline-none focus:ring-3 focus:ring-blue-light",
+    attrs.class as string,
+  ),
+);
+
+const labelClasses = computed(() =>
+  cn(
+    "absolute left-3 transition-all font-medium duration-200 pointer-events-none",
+    isFocused.value || hasValue.value
+      ? "text-blue translate-y-4 text-sm top-1"
+      : "text-gray translate-y-8",
+  ),
+);
+
+const handleInput = (event: Event) => {
+  const target = event.target as HTMLTextAreaElement;
+  modelValue.value = target.value;
+};
+
+const handleFocus = () => {
+  isFocused.value = true;
+};
+
+const handleBlur = () => {
+  isFocused.value = false;
+};
+
+onMounted(() => {
+  if (attrs.modelValue) {
+    modelValue.value = attrs.modelValue;
+  }
+});
+</script>
+
+<template>
+  <div class="relative w-full">
+    <label :class="labelClasses">{{
+      attrs.label || attrs.placeholder || "Type Something..."
+    }}</label>
+    <textarea
+      ref="textareaRef"
+      v-bind="$attrs"
+      :value="String(modelValue ?? '')"
+      @input="handleInput"
+      @focus="handleFocus"
+      @blur="handleBlur"
+      :class="classes"
+      :placeholder="!isFocused && !hasValue ? '' : ''"
+    ></textarea>
+  </div>
+</template>
