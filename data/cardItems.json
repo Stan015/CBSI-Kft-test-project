@@ -1,0 +1,116 @@
+{
+  "cardItems": [
+    {
+      "id": 1,
+      "cardStyle": "image-card-style",
+      "title": "Welcome Card",
+      "description": "This card welcomes users to your app. It provides an introduction and helps users get started by highlighting the main features and benefits of the application. Use this card to make a great first impression, guide users through the onboarding process, and ensure they feel comfortable navigating the interface. A welcoming message can increase user engagement, retention, and satisfaction, setting the tone for a positive experience from the very beginning.",
+      "imageSrc": "/images/img1.webp",
+      "options": []
+    },
+    {
+      "id": 2,
+      "cardStyle": "default-card-style",
+      "title": "Profile Card",
+      "description": "Shows user profile information. This card provides a comprehensive overview of the user's personal details, preferences, and activity within the application. It allows users to easily view and update their information, ensuring their profile is always accurate and up-to-date. By centralizing user data, the Profile Card enhances personalization and streamlines account management. It also serves as a gateway to privacy settings, security options, and connected services, empowering users to control their digital identity and experience. The intuitive layout and clear presentation of information make it easy for users to navigate and make changes as needed, fostering trust and engagement.",
+      "imageSrc": null,
+      "options": []
+    },
+    {
+      "id": 3,
+      "cardStyle": "checkbox-card-style",
+      "title": "Alert Card",
+      "description": "Displays important alerts and warnings. The Alert Card is designed to immediately capture the user's attention when critical information or urgent actions are required. It can be used to notify users about system errors, security issues, deadlines, or other time-sensitive matters. The card's prominent color and clear messaging ensure that alerts are not overlooked, helping users respond quickly and appropriately. Customizable icons and action buttons can be included to guide users toward resolving issues or acknowledging notifications. By centralizing alerts in a dedicated card, the application maintains a clean interface while ensuring that vital information is always visible and accessible.",
+      "imageSrc": null,
+      "options": [
+        "Excepteur sint occaecat cupidatat non proident.",
+        "Sunt in culpa qui officia deserunt mollit anim id est laborum."
+      ]
+    },
+    {
+      "id": 4,
+      "cardStyle": "image-card-style",
+      "title": "Statistics Card",
+      "description": "Presents key metrics at a glance. The Statistics Card aggregates and displays essential data points, enabling users to quickly assess performance, trends, or progress within the application. Whether tracking usage statistics, financial figures, or project milestones, this card provides visual summaries through charts, graphs, or numerical highlights. Its concise format allows users to monitor important metrics without navigating away from the main dashboard. The card can be customized to show real-time updates, comparisons, and historical data, supporting informed decision-making and goal tracking. By making complex information easily digestible, the Statistics Card empowers users to stay informed and proactive.",
+      "imageSrc": "/images/img2.webp",
+      "options": []
+    },
+    {
+      "id": 5,
+      "cardStyle": "checkbox-card-style",
+      "title": "Feature Card",
+      "description": "Highlights a new feature. The Feature Card is designed to showcase the latest additions or improvements to the application, drawing user attention to valuable functionalities they may not have discovered yet. It includes a brief explanation of the feature's purpose, benefits, and how to access or use it. By promoting new features in a visually appealing format, the card encourages exploration and adoption, helping users get the most out of the app. The card can also include links to tutorials, documentation, or feedback forms, fostering engagement and continuous improvement based on user input.",
+      "imageSrc": null,
+      "options": [
+        "Quisque velit nisi, pretium ut lacinia in, elementum id enim.",
+        "Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui."
+      ]
+    },
+    {
+      "id": 6,
+      "cardStyle": "default-card-style",
+      "title": "FAQ Card",
+      "description": "Answers frequent user questions. The FAQ Card serves as a quick reference for users seeking help or clarification about the application's features, policies, or troubleshooting steps. It organizes common questions and concise answers in an accessible format, reducing the need for direct support and empowering users to resolve issues independently. The card can be updated regularly to address new topics and reflect user feedback, ensuring relevance and accuracy. By providing instant access to helpful information, the FAQ Card enhances user satisfaction, reduces frustration, and streamlines the onboarding process for new users.",
+      "imageSrc": null,
+      "options": []
+    },
+    {
+      "id": 7,
+      "cardStyle": "image-card-style",
+      "title": "Tutorial Card",
+      "description": "Step-by-step guide for new users. The Tutorial Card offers a structured walkthrough of the application's core features and workflows, making it easier for newcomers to get started. It breaks down complex processes into manageable steps, often accompanied by visuals or interactive elements. This card can be tailored to different user roles or experience levels, ensuring that everyone receives relevant guidance. By providing clear instructions and tips, the Tutorial Card accelerates learning, reduces errors, and boosts user confidence. It can also link to additional resources, such as video tutorials or community forums, for further support.",
+      "imageSrc": "/images/img3.webp",
+      "options": []
+    },
+    {
+      "id": 8,
+      "cardStyle": "default-card-style",
+      "title": "News Card",
+      "description": "Latest updates and announcements. The News Card keeps users informed about recent developments, upcoming events, and important announcements related to the application or organization. It delivers timely information in a concise and engaging format, ensuring users never miss critical updates. The card can include headlines, summaries, and links to full articles or external resources. By centralizing news in a dedicated space, the application fosters transparency and community engagement. Users can stay up-to-date with minimal effort, enhancing their connection to the platform and its ongoing evolution.",
+      "imageSrc": null,
+      "options": []
+    },
+    {
+      "id": 9,
+      "cardStyle": "checkbox-card-style",
+      "title": "Activity Card",
+      "description": "Shows recent activities. The Activity Card provides a chronological overview of user actions, system events, or collaborative updates within the application. It helps users track their progress, monitor changes, and stay informed about relevant developments. The card can display timestamps, descriptions, and links to related content, making it easy to revisit or follow up on specific activities. By offering transparency and accountability, the Activity Card supports effective collaboration and personal productivity. Users can quickly identify what has happened since their last visit and take appropriate action as needed.",
+      "imageSrc": null,
+      "options": [
+        "Pellentesque in ipsum id orci porta dapibus.",
+        "Curabitur aliquet quam id dui posuere blandit."
+      ]
+    },
+    {
+      "id": 10,
+      "cardStyle": "image-card-style",
+      "title": "Settings Card",
+      "description": "User preferences and settings. The Settings Card provides a centralized location for users to customize their experience, manage account details, and configure application options. It offers intuitive controls for adjusting notifications, privacy, appearance, and other preferences. By making settings easily accessible, the card empowers users to tailor the application to their needs and maintain control over their data. The card can also include shortcuts to advanced features, support resources, and security tools, ensuring users have everything they need to optimize their experience in one convenient place.",
+      "imageSrc": "/images/img4.webp",
+      "options": []
+    },
+    {
+      "id": 11,
+      "cardStyle": "checkbox-card-style",
+      "title": "Contact Card",
+      "description": "Contact information and support links. The Contact Card makes it easy for users to reach out for assistance, provide feedback, or connect with the application's support team. It displays essential contact details, such as email addresses, phone numbers, and social media links, along with quick access to help resources. The card can also include a contact form or chatbot integration for real-time support. By streamlining communication channels, the Contact Card ensures users receive timely help and fosters a sense of trust and reliability within the application.",
+      "imageSrc": null,
+      "options": [
+        "Vestibulum ac diam sit amet quam vehicula elementum.",
+        "Curabitur non nulla sit amet nisl tempus convallis."
+      ]
+    },
+    {
+      "id": 12,
+      "cardStyle": "checkbox-card-style",
+      "title": "Feedback Card",
+      "description": "Collects user feedback and ratings. The Feedback Card invites users to share their thoughts, suggestions, and experiences with the application, helping drive continuous improvement. It can include rating scales, comment fields, and quick survey options to gather actionable insights. By making feedback submission simple and accessible, the card encourages participation and demonstrates that user opinions are valued. The collected feedback can be analyzed to identify trends, address issues, and prioritize new features, ensuring the application evolves in line with user needs and expectations.",
+      "imageSrc": null,
+      "options": [
+        "Nulla quis lorem ut libero malesuada feugiat.",
+        "Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.",
+        "Sed porttitor lectus nibh."
+      ]
+    }
+  ]
+}

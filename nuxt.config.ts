@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  modules: ["@nuxtjs/google-fonts"],
+  modules: ["@nuxtjs/google-fonts", "@pinia/nuxt"],
   googleFonts: {
     families: {
       "Lexend+Deca": [100, 300, 400, 500, 700],
