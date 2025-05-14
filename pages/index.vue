@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Card } from "~/types/card";
 
-const selectedTypes = ref([]);
+const selectedTypes = ref<string[]>([]);
 
 const store = useCardsStore();
 
@@ -13,6 +13,18 @@ store.cards.forEach((card: Card) => {
   ) {
     card.selectedOptions = [];
   }
+});
+
+// Filtered cards based on selectedTypes
+const filteredCards = computed(() => {
+  // show all cards
+  if (selectedTypes.value.length === 0 || selectedTypes.value.includes("all")) {
+    return store.cards;
+  }
+  // Otherwise, filter by cardStyle
+  return store.cards.filter((card: Card) =>
+    selectedTypes.value.includes(card.cardStyle),
+  );
 });
 </script>
 
@@ -42,7 +54,7 @@ store.cards.forEach((card: Card) => {
 
     <section class="grid grid-cols-4 gap-4 px-[5%]">
       <NuxtLink
-        v-for="card in store.cards"
+        v-for="card in filteredCards"
         :key="card.id"
         :to="`/${card.id}`"
         class="bg-white shadow-lg rounded-2xl p-6 w-full max-h-[28rem] hover:shadow-xl transition-all duration-300 hover:transform hover:scale-102"
