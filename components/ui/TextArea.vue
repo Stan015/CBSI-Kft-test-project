@@ -26,8 +26,8 @@ const labelClasses = computed(() =>
   cn(
     "absolute left-3 transition-all font-medium duration-200 pointer-events-none",
     isFocused.value || hasValue.value
-      ? "text-blue translate-y-4 text-sm top-1"
-      : "text-gray translate-y-8",
+      ? "text-blue translate-y-1 text-sm"
+      : "text-gray translate-y-4",
   ),
 );
 

@@ -76,7 +76,7 @@ const labelClasses = computed(() =>
 
 const dropdownClasses = computed(() =>
   cn(
-    "absolute top-full mt-1 w-full bg-white rounded-md shadow-md z-10 transition-all duration-200",
+    "absolute top-full mt-1 w-full bg-white rounded-md overflow-hidden shadow-md z-10 transition-all duration-200",
     isOpen.value
       ? "opacity-100 scale-100"
       : "opacity-0 scale-95 pointer-events-none",
