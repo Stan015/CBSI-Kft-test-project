@@ -33,7 +33,7 @@ const filteredCards = computed(() => {
     <section class="flex gap-4 justify-between items-center my-4 px-[5%]">
       <h1 class="font-bold text-3xl">Notes</h1>
 
-      <div class="flex items-center gap-3 mb-4">
+      <div class="flex items-center gap-3">
         <FilterSelect
           v-model:selectedOptions="selectedTypes"
           :options="[
@@ -52,7 +52,9 @@ const filteredCards = computed(() => {
       </div>
     </section>
 
-    <section class="grid grid-cols-4 gap-4 px-[5%]">
+    <section
+      class="grid grid-cols-4 max-xl:grid-cols-3 max-[820px]:!grid-cols-2 max-sm:!grid-cols-1 gap-4 px-[5%]"
+    >
       <Card
         v-for="card in filteredCards"
         :key="card.id"

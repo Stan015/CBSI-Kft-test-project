@@ -10,16 +10,14 @@ const card = computed(() => cards.value.find((c) => c.id === cardId));
 <template>
   <main>
     <section class="flex gap-4 justify-between items-center my-4 px-[5%]">
-      <h1 class="font-bold text-3xl">Single Note</h1>
-      <div class="flex items-center gap-3 mb-4">
-        <AddNewCardBtn />
-      </div>
+      <h1 class="font-bold text-3xl max-sm:text-2xl">Single Note</h1>
+      <AddNewCardBtn />
     </section>
 
     <section
       class="flex flex-col justify-center items-center px-[5%] gap-6 w-full"
     >
-      <div class="flex flex-col gap-4 w-[35rem]">
+      <div class="flex flex-col gap-4 w-[35rem] max-md:w-[30rem] max-sm:w-full">
         <Card
           v-if="card"
           :key="card.id"
