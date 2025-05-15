@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import { ref, watch } from "vue";
 import type { Card } from "~/types/card";
 
-defineProps({
+const props = defineProps({
   card: {
     type: Object as PropType<Card>,
     required: true,
@@ -23,6 +24,30 @@ defineProps({
     default: "",
   },
 });
+
+const emit = defineEmits(["update:selectedOptions"]);
+
+// Use a local copy for selectedOptions if checkbox-card-style
+const localSelectedOptions = ref(
+  props.card.selectedOptions ? [...props.card.selectedOptions] : [],
+);
+
+watch(
+  () => props.card.selectedOptions,
+  (newVal) => {
+    if (Array.isArray(newVal)) {
+      localSelectedOptions.value = [...newVal];
+    }
+  },
+);
+
+// Emit changes to parent/store
+function onCheckboxChange() {
+  emit("update:selectedOptions", {
+    id: props.card.id,
+    selectedOptions: [...localSelectedOptions.value],
+  });
+}
 </script>
 
 <template>
@@ -79,8 +104,9 @@ defineProps({
           type="checkbox"
           :id="'option-' + card.id + '-' + index"
           :value="option"
-          v-model="card.selectedOptions"
+          v-model="localSelectedOptions"
           class="shrink-0 cursor-pointer w-6 h-6 border-2"
+          @change="onCheckboxChange"
           @click.stop
         />
         <label

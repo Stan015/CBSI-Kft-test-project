@@ -60,7 +60,7 @@ const handleCreate = () => {
     @submit.prevent="handleCreate"
   >
     <div class="flex items-center justify-between mb-4">
-      <h2>Create New Card</h2>
+      <h2 class="font-bold">Create New Card</h2>
       <button
         aria-label="Close"
         class="cursor-pointer border border-transparent hover:border-accent p-2 rounded-full transition-all"
@@ -103,7 +103,7 @@ const handleCreate = () => {
         @file-selected="handleUpload"
       />
 
-      <TextArea v-model="description" placeholder="Description" />
+      <TextArea v-model="description" placeholder="Description" :rows="5" />
 
       <OptionList
         v-if="selectedCardStyle === 'checkbox-card-style'"
