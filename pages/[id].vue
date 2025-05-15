@@ -33,17 +33,15 @@ const card = computed(() => cards.value.find((c) => c.id === cardId));
         </div>
 
         <div v-if="card" class="flex items-center justify-between">
-          <Button
-            class="bg-red hover:bg-red/95 transition-all text-white hover:scale-95"
-            @click="
+          <DeleteCardBtn
+            :card-id="cardId"
+            @deleted="
               () => {
                 store.removeCard(cardId);
                 $router.push('/');
               }
             "
-            >Delete Note</Button
-          >
-
+          />
           <UpdateCardBtn
             :card="card"
             title="Edit Note"
