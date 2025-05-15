@@ -56,7 +56,7 @@ const handleCreate = () => {
 
 <template>
   <form
-    class="bg-white shadow-lg rounded-2xl p-6 w-[25rem]"
+    class="bg-white shadow-lg rounded-2xl p-6 w-[25rem] max-sm:w-[22rem]"
     @submit.prevent="handleCreate"
   >
     <div class="flex items-center justify-between mb-4">
