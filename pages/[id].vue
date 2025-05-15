@@ -5,6 +5,11 @@ const { cards } = storeToRefs(store);
 
 const cardId = Number(route.params.id);
 const card = computed(() => cards.value.find((c) => c.id === cardId));
+
+useSeoMeta({
+  title: () => card.value?.title,
+  description: () => `An amazing note titled ${card.value?.title}`,
+});
 </script>
 
 <template>

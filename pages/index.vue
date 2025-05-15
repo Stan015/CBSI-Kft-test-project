@@ -1,4 +1,9 @@
 <script setup lang="ts">
+useSeoMeta({
+  title: "Notes App",
+  description: "A simple notes app built with Vue 3, Nuxt 3 and Tailwind CSS",
+});
+
 import type { Card } from "~/types/card";
 
 const selectedTypes = ref<string[]>([]);
