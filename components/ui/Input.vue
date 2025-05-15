@@ -1,15 +1,19 @@
 <script setup lang="ts">
+const props = defineProps({
+  modelValue: [String, Number],
+});
+const emit = defineEmits(["update:modelValue"]);
+
 const attrs = useAttrs();
 
 const inputRef = ref<HTMLInputElement | null>(null);
 const isFocused = ref(false);
-const modelValue = ref(attrs.modelValue || "");
 
 const hasValue = computed(() => {
   return (
-    modelValue.value !== "" &&
-    modelValue.value !== null &&
-    modelValue.value !== undefined
+    props.modelValue !== "" &&
+    props.modelValue !== null &&
+    props.modelValue !== undefined
   );
 });
 
@@ -39,11 +43,9 @@ const handleBlur = () => {
   isFocused.value = false;
 };
 
-onMounted(() => {
-  if (attrs.modelValue) {
-    modelValue.value = attrs.modelValue;
-  }
-});
+function onInput(event: Event) {
+  emit("update:modelValue", (event.target as HTMLInputElement).value);
+}
 </script>
 
 <template>
@@ -54,11 +56,8 @@ onMounted(() => {
     <input
       ref="inputRef"
       v-bind="$attrs"
-      :value="modelValue"
-      @input="
-        modelValue =
-          ($event.target && ($event.target as HTMLInputElement).value) || ''
-      "
+      :value="String(props.modelValue ?? '')"
+      @input="onInput"
       @focus="handleFocus"
       @blur="handleBlur"
       :class="classes"

@@ -83,7 +83,7 @@ const onChange = (e) => {
     <p v-if="errorMessage" class="text-sm text-red mt-2">
       {{ errorMessage }}
     </p>
-    <p v-else-if="uploadedFileName" class="text-sm text-green mt-2">
+    <p v-else-if="uploadedFileName" class="text-sm text-green mt-2 truncate">
       Uploaded: {{ uploadedFileName }}
     </p>
 

@@ -1,15 +1,19 @@
 <script setup lang="ts">
+const props = defineProps({
+  modelValue: [String, Number],
+});
+const emit = defineEmits(["update:modelValue"]);
+
 const attrs = useAttrs();
 
 const textareaRef = ref<HTMLTextAreaElement | null>(null);
 const isFocused = ref(false);
-const modelValue = ref(attrs.modelValue || "");
 
 const hasValue = computed(() => {
   return (
-    modelValue.value !== "" &&
-    modelValue.value !== null &&
-    modelValue.value !== undefined
+    props.modelValue !== "" &&
+    props.modelValue !== null &&
+    props.modelValue !== undefined
   );
 });
 
@@ -31,11 +35,6 @@ const labelClasses = computed(() =>
   ),
 );
 
-const handleInput = (event: Event) => {
-  const target = event.target as HTMLTextAreaElement;
-  modelValue.value = target.value;
-};
-
 const handleFocus = () => {
   isFocused.value = true;
 };
@@ -44,11 +43,9 @@ const handleBlur = () => {
   isFocused.value = false;
 };
 
-onMounted(() => {
-  if (attrs.modelValue) {
-    modelValue.value = attrs.modelValue;
-  }
-});
+function onInput(event: Event) {
+  emit("update:modelValue", (event.target as HTMLTextAreaElement).value);
+}
 </script>
 
 <template>
@@ -59,8 +56,8 @@ onMounted(() => {
     <textarea
       ref="textareaRef"
       v-bind="$attrs"
-      :value="String(modelValue ?? '')"
-      @input="handleInput"
+      :value="String(props.modelValue ?? '')"
+      @input="onInput"
       @focus="handleFocus"
       @blur="handleBlur"
       :class="classes"

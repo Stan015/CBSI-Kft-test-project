@@ -9,7 +9,7 @@ export const useCardsStore = defineStore("cardsStore", () => {
     const nextId = cards.value.length
       ? Math.max(...cards.value.map((c) => c.id)) + 1
       : 1;
-    cards.value.push({ id: nextId, ...payload });
+    cards.value.unshift({ id: nextId, ...payload });
   };
 
   // update an existing card by id
