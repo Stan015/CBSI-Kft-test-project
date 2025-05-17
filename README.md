@@ -1,4 +1,4 @@
-# CBSI Kft Test Project
+# NoteCards
 
 A small SPA (single-page app) for notes using TypeScript, Vue 3, Nuxt 3, and TailwindCSS.
 
