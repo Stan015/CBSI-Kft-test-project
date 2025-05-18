@@ -19,7 +19,7 @@ const hasValue = computed(() => {
 
 const classes = computed(() =>
   cn(
-    "w-full text-sm text-primary bg-gray-light rounded px-3 pt-6 pb-2 border-[1.8px] border-transparent box-border rounded-[1rem]",
+    "w-full text-sm text-primary bg-gray-light rounded px-3 pt-6 pb-2 border-[1.8px] border-transparent box-border rounded-[1rem] scrollbar-hide",
     "transition-all duration-200",
     "hover:border-blue focus:border-blue active:border-blue focus:outline-none focus:ring-3 focus:ring-blue-light",
     attrs.class as string,
@@ -30,7 +30,7 @@ const labelClasses = computed(() =>
   cn(
     "absolute left-3 transition-all font-medium duration-200 pointer-events-none",
     isFocused.value || hasValue.value
-      ? "text-blue translate-y-1 text-sm"
+      ? "text-blue translate-y-[0.11rem] text-sm bg-gray-light"
       : "text-gray translate-y-4",
   ),
 );
@@ -49,7 +49,7 @@ function onInput(event: Event) {
 </script>
 
 <template>
-  <div class="relative w-full">
+  <div class="relative w-full overflow-hidden">
     <label :class="labelClasses">{{
       attrs.label || attrs.placeholder || "Type Something..."
     }}</label>
@@ -62,6 +62,6 @@ function onInput(event: Event) {
       @blur="handleBlur"
       :class="classes"
       :placeholder="!isFocused && !hasValue ? '' : ''"
-    ></textarea>
+    />
   </div>
 </template>
