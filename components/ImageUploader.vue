@@ -20,11 +20,11 @@ const handleFile = (files) => {
 
   const img = new Image();
   img.onload = () => {
-    if (img.width <= 800 && img.height <= 400) {
+    if (img.width <= 1280 && img.height <= 720) {
       emit("file-selected", file);
       uploadedFileName.value = file.name;
     } else {
-      errorMessage.value = "Image must be max 800x400px.";
+      errorMessage.value = "Image must be max 1280x720px.";
     }
   };
   img.src = URL.createObjectURL(file);
@@ -78,7 +78,7 @@ const onChange = (e) => {
       </span>
       or drag and drop
     </p>
-    <p class="text-sm text-gray-600">SVG, PNG, JPG or GIF (max. 800x400px)</p>
+    <p class="text-sm text-gray-600">SVG, PNG, JPG or GIF (max. 1280x720px)</p>
 
     <p v-if="errorMessage" class="text-sm text-red mt-2">
       {{ errorMessage }}
