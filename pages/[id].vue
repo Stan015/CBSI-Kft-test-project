@@ -23,36 +23,38 @@ useSeoMeta({
       class="flex flex-col justify-center items-center px-[5%] gap-6 w-full"
     >
       <div class="flex flex-col gap-4 w-[35rem] max-md:w-[30rem] max-sm:w-full">
-        <Card
-          v-if="card"
-          :key="card.id"
-          :card="card"
-          :isLink="false"
-          :wrapperClass="'bg-white shadow-lg rounded-2xl p-6 w-full !max-h-full h-auto hover:shadow-xl transition-all duration-300 hover:transform hover:scale-102'"
-          :titleClass="'text-lg font-bold mb-4'"
-          :imageClass="'w-full h-60 object-cover rounded-2xl mb-4'"
-          :descriptionClass="'text-primary mb-4 whitespace-pre-line h-auto !line-clamp-none !truncate-none'"
-        />
-        <div v-else class="col-span-4 text-center text-primary py-10">
-          Note not found.
-        </div>
-
-        <div v-if="card" class="flex items-center justify-between">
-          <DeleteCardBtn
-            :card-id="cardId"
-            @deleted="
-              () => {
-                store.removeCard(cardId);
-                $router.push('/');
-              }
-            "
-          />
-          <UpdateCardBtn
+        <div v-if="store.isInitialized" class="flex flex-col gap-4 w-full">
+          <Card
+            v-if="card"
+            :key="card.id"
             :card="card"
-            title="Edit Note"
-            title-class="bg-blue hover:bg-blue/95 transition-all text-white hover:scale-95"
+            :isLink="false"
+            :wrapperClass="'bg-white shadow-lg rounded-2xl p-6 w-full !max-h-full h-auto hover:shadow-xl transition-all duration-300 hover:transform hover:scale-102'"
+            :titleClass="'text-lg font-bold mb-4'"
+            :imageClass="'w-full h-60 object-cover rounded-2xl mb-4'"
+            :descriptionClass="'text-primary mb-4 whitespace-pre-line h-auto !line-clamp-none !truncate-none'"
           />
+          <div v-else class="col-span-4 text-center text-primary py-10">
+            Note not found.
+          </div>
+          <div v-if="card" class="flex items-center justify-between">
+            <DeleteCardBtn
+              :card-id="cardId"
+              @deleted="
+                () => {
+                  store.removeCard(cardId);
+                  $router.push('/');
+                }
+              "
+            />
+            <UpdateCardBtn
+              :card="card"
+              title="Edit Note"
+              title-class="bg-blue hover:bg-blue/95 transition-all text-white hover:scale-95"
+            />
+          </div>
         </div>
+        <CardSkeleton v-else />
         <Button
           class="bg-green text-white rounded-full px-4 py-2 hover:bg-green/95 hover:scale-95 transition-all"
           @click="$router.push('/')"

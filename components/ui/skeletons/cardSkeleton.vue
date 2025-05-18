@@ -69,7 +69,7 @@ const props = defineProps({
       />
     </div>
 
-    <div class="flex flex-col gap-2 overflow-y-scroll">
+    <div class="flex flex-col gap-2">
       <div class="flex items-center gap-2">
         <div class="shrink-0 bg-gray animate-pulse w-5 h-5 rounded-2xl" />
         <div class="bg-gray animate-pulse w-full h-5 rounded-2xl" />
