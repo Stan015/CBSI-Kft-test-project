@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref, watch } from "vue";
 import type { Card } from "~/types/card";
 
 const props = defineProps({
@@ -26,26 +25,42 @@ const props = defineProps({
 });
 
 const emit = defineEmits(["update:selectedOptions"]);
+const cardsStore = useCardsStore();
 
-// Use a local copy for selectedOptions if checkbox-card-style
-const localSelectedOptions = ref(
-  props.card.selectedOptions ? [...props.card.selectedOptions] : [],
+// Use a local copy for selected option indexes
+const localSelectedOptionIndexes = ref(
+  Array.isArray(props.card.selectedOptions)
+    ? [...props.card.selectedOptions]
+    : [],
 );
 
+// Watch for changes from parent/store
 watch(
   () => props.card.selectedOptions,
   (newVal) => {
     if (Array.isArray(newVal)) {
-      localSelectedOptions.value = [...newVal];
+      localSelectedOptionIndexes.value = [...newVal];
     }
   },
 );
 
-// Emit changes to parent/store
-function onCheckboxChange() {
+// Update local state and store
+function onCheckboxChange(index: number) {
+  const idx = localSelectedOptionIndexes.value.indexOf(index);
+  if (idx === -1) {
+    localSelectedOptionIndexes.value.push(index);
+  } else {
+    localSelectedOptionIndexes.value.splice(idx, 1);
+  }
+
+  // Directly update the store
+  cardsStore.updateCard(props.card.id, {
+    selectedOptions: [...localSelectedOptionIndexes.value],
+  });
+
   emit("update:selectedOptions", {
     id: props.card.id,
-    selectedOptions: [...localSelectedOptions.value],
+    selectedOptions: [...localSelectedOptionIndexes.value],
   });
 }
 </script>
@@ -91,7 +106,7 @@ function onCheckboxChange() {
         card.options &&
         card.options.length
       "
-      class="flex flex-col gap-2 overflow-y-scroll"
+      class="flex flex-col gap-2 overflow-y-scroll scrollbar-hide"
       @click.stop
     >
       <div
@@ -103,10 +118,10 @@ function onCheckboxChange() {
         <input
           type="checkbox"
           :id="'option-' + card.id + '-' + index"
-          :value="option"
-          v-model="localSelectedOptions"
-          class="shrink-0 cursor-pointer w-6 h-6 border-2"
-          @change="onCheckboxChange"
+          :value="index"
+          :checked="localSelectedOptionIndexes.includes(index)"
+          class="shrink-0 cursor-pointer w-5 h-5 border-2"
+          @change="onCheckboxChange(index)"
           @click.stop
         />
         <label

@@ -47,7 +47,7 @@ const filteredCards = computed(() => {
             { value: 'checkbox-card-style', label: 'Checkbox Card Style' },
           ]"
           class="flex flex-col items-center"
-          trigger-class="bg-black rounded-full w-[5rem] p-2 text-white h-10"
+          trigger-class="bg-black rounded-full w-[5.5rem] p-2 px-4 text-white h-10"
           dropdown-class="w-[10rem]"
           checkbox-class="w-5 h-5"
           option-class="text-sm"
@@ -57,15 +57,24 @@ const filteredCards = computed(() => {
       </div>
     </section>
 
-    <section
-      class="grid grid-cols-4 max-xl:grid-cols-3 max-[820px]:!grid-cols-2 max-sm:!grid-cols-1 gap-4 px-[5%]"
-    >
-      <Card
-        v-for="card in filteredCards"
-        :key="card.id"
-        :card="card"
-        :selectedTypes="selectedTypes"
-      />
+    <section class="px-[5%] w-full">
+      <div
+        v-if="store.isInitialized"
+        class="grid grid-cols-4 max-xl:grid-cols-3 max-[820px]:!grid-cols-2 max-sm:!grid-cols-1 gap-4"
+      >
+        <Card
+          v-for="card in filteredCards"
+          :key="card.id"
+          :card="card"
+          :selectedTypes="selectedTypes"
+        />
+      </div>
+      <div
+        v-else
+        class="grid grid-cols-4 max-xl:grid-cols-3 max-[820px]:!grid-cols-2 max-sm:!grid-cols-1 gap-4"
+      >
+        <CardSkeleton v-for="n in 12" :key="n" />
+      </div>
     </section>
   </main>
 </template>
