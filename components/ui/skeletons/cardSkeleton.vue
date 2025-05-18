@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const props = defineProps({
+defineProps({
   card: {
     type: Object as PropType<Card>,
     required: true,
